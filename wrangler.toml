@@ -1,0 +1,23 @@
+# wrangler.toml
+name = "gemini-proxy-panel"
+main = "worker/src/index.ts"
+compatibility_date = "2025-03-27"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+binding = "ASSETS"
+directory = "public"
+
+[observability]
+enabled = true
+
+[triggers]
+crons = ["*/30 * * * *"]
+
+[[kv_namespaces]]
+binding = "GEMINI_KEYS_KV"
+id = "0eaed2f84fe4484794b4a429505193d7"
+
+[[kv_namespaces]]
+binding = "WORKER_CONFIG_KV"
+id = "15d279b1ee384abcbab7bd310223fc8e"
